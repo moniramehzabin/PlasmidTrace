@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+*.bam
+*.bai
+*.fastq*
+*.fq*
+*.fasta
+*.fna
+*.gbk
+*.gbff
+*.dmnd
+results/

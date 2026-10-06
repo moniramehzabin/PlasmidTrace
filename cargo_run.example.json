@@ -1,0 +1,72 @@
+{
+  "amrfinder": {
+    "command": [
+      "/absolute/path/amrfinder",
+      "-n",
+      "{assembly}",
+      "--plus",
+      "--threads",
+      "2",
+      "--database",
+      "/absolute/path/amrfinder_database",
+      "-o",
+      "{out}/amrfinder.tsv"
+    ],
+    "result": "{out}/amrfinder.tsv",
+    "provenance_files": [
+      "/absolute/path/amrfinder_database/version.txt"
+    ]
+  },
+  "virulencefinder": {
+    "command": [
+      "/absolute/path/virulencefinder_env/bin/python",
+      "-m",
+      "virulencefinder",
+      "-ifa",
+      "{assembly}",
+      "-o",
+      "{out}",
+      "-p",
+      "/absolute/path/virulencefinder_db",
+      "-b",
+      "/absolute/path/virulencefinder_env/bin/blastn",
+      "-d",
+      "all",
+      "-t",
+      "0.90",
+      "-l",
+      "0.60",
+      "-x"
+    ],
+    "result": "{out}/results_tab.tsv",
+    "provenance_files": [
+      "/absolute/path/virulencefinder_db/VERSION"
+    ]
+  },
+  "geneminer": {
+    "command": [
+      "/absolute/path/geneminer_venv/bin/python",
+      "/absolute/path/bioremediation_gene_miner.py",
+      "/absolute/path/original_annotation.gbk",
+      "--reference-db",
+      "/absolute/path/curated.dmnd",
+      "--reference-metadata",
+      "/absolute/path/reference_metadata.tsv",
+      "--annotation-rules",
+      "/absolute/path/annotation_rules.tsv",
+      "--threads",
+      "2",
+      "--outdir",
+      "{out}"
+    ],
+    "result": "{out}/Bioremediation_Gene_Miner_Report_all_candidates.tsv",
+    "genbank": "/absolute/path/original_annotation.gbk",
+    "provenance_files": [
+      "/absolute/path/bioremediation_gene_miner.py",
+      "/absolute/path/curated.dmnd",
+      "/absolute/path/reference_metadata.tsv",
+      "/absolute/path/annotation_rules.tsv"
+    ],
+    "workbook": "{out}/Bioremediation_Gene_Miner_Report.xlsx"
+  }
+}

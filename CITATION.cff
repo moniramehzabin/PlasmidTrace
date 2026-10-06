@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use PlasmidTrace, please cite this software and the external programs used in your analysis."
+type: software
+title: "PlasmidTrace: experimental plasmid candidate investigation workflow"
+version: "1.0.0"
+authors:
+  - family-names: "Mehzabin"
+    given-names: "Monira"
+  - name: "Khandoker Md Rezwan"
+license: MIT
+abstract: >-
+  An experimental workflow for plasmid candidate screening, short-read
+  reconstruction, end-to-start junction support and optional functional
+  gene analysis. Biological benchmarking is pending.

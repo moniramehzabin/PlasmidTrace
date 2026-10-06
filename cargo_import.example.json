@@ -1,0 +1,8 @@
+{
+  "amrfinder": {"result": "/absolute/path/amrfinder.tsv"},
+  "virulencefinder": {"result": "/absolute/path/results_tab.tsv"},
+  "geneminer": {
+    "result": "/absolute/path/Bioremediation_Gene_Miner_Report_all_candidates.tsv",
+    "genbank": "/absolute/path/original_annotation.gbk"
+  }
+}
