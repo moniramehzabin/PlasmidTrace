@@ -1,5 +1,7 @@
 # PlasmidTrace
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23754092.svg)](https://doi.org/10.5281/zenodo.23754092)
+
 Experimental prototype **v1.0.0** for screening, reconstructing and investigating plasmid candidates from bacterial short-read assemblies.
 
 PlasmidTrace follows candidate sequences from the initial assembly through reconstruction, checks read support across proposed circular junctions, and optionally investigates their functional genes.

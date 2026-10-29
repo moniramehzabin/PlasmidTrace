@@ -4,7 +4,7 @@ type: software
 title: "PlasmidTrace: plasmid candidate screening, reconstruction and functional cargo analysis"
 version: "1.0.0"
 date-released: "2026-10-06"
-doi: "10.5281/zenodo.23189175"
+doi: "10.5281/zenodo.23754092"
 url: "https://github.com/moniramehzabin/PlasmidTrace"
 authors:
   - family-names: "Mehzabin"
