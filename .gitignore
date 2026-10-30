@@ -11,3 +11,8 @@ __pycache__/
 *.gbff
 *.dmnd
 results/
+
+# Local app settings and generated runs
+app_settings.json
+
+setup_runs/

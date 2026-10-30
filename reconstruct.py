@@ -165,7 +165,7 @@ def main():
             if getattr(a,arg):screen += ['--'+arg.replace('_','-'),str(getattr(a,arg).resolve())]
         for arg in ['run_barrnap','run_mob']:
             if getattr(a,arg):screen+=['--'+arg.replace('_','-')]
-        for arg in ['plasmidfinder_results','plasmidfinder_db']:
+        for arg in ['plasmidfinder_results','plasmidfinder_db','mob_db']:
             if getattr(a,arg): screen += ['--'+arg.replace('_','-'),str(getattr(a,arg).resolve())]
         for arg in ['plasmidfinder_executable','mob_executable','plasmidfinder_identity','plasmidfinder_coverage']:
             screen += ['--'+arg.replace('_','-'),str(getattr(a,arg))]

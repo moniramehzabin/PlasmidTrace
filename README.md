@@ -19,7 +19,7 @@ Biological benchmarking is pending. Results are evidence for review, not confirm
 ## Requirements
 
 - Python 3.10 or newer.
-- External programs and databases installed separately.
+- Core external programs and databases can be prepared through the browser app; manual command-line use requires configured installations.
 - Screening, depending on selected options: barrnap, MOB-suite and PlasmidFinder.
 - Reconstruction: Unicycler 0.5.0, SPAdes, BLAST, BWA and SAMtools.
 - Functional analysis: AMRFinderPlus, VirulenceFinder and/or Bioremediation Gene Miner with their required databases and environments.
@@ -27,6 +27,14 @@ Biological benchmarking is pending. Results are evidence for review, not confirm
 The PlasmidTrace Python scripts use the standard library. External modules may require their own Python dependencies.
 
 Genomic datasets and external databases are not included.
+
+## Simple browser app
+
+On Windows, keep the complete downloaded folder on F: and double-click **Open_PlasmidTrace.bat**. Select your genome FASTA and click **Run analysis**. On first use, **Set up and run** prepares the core tools and databases before starting the analysis. Windows Python 3.10+ and WSL/Linux are required; Windows setup currently checks that the selected WSL distribution is stored on F:.
+
+Other workflows, imported evidence and environment settings are under **Advanced**. Reports, Excel and complete result downloads appear when the run finishes. Files stay on your computer. Core setup covers rRNA and plasmid-marker screening plus reconstruction dependencies. Optional cargo modules retain their advanced configuration.
+
+See [APP_GUIDE.md](APP_GUIDE.md) for instructions and [APP_VALIDATION.md](APP_VALIDATION.md) for validation limits. App preview 0.4.0 uses the existing 1.0.0 analysis classifications and thresholds. Live Windows installation and biological benchmarking remain pending.
 
 ## Getting started
 
