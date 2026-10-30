@@ -12,7 +12,6 @@ def arguments(parser):
     parser.add_argument('--plasmidfinder-results', type=Path, help='Import results_tab.tsv from a completed assembly search')
     parser.add_argument('--plasmidfinder-db', type=Path)
     parser.add_argument('--plasmidfinder-executable', default='plasmidfinder.py')
-    parser.add_argument('--mob-db', type=Path, help='Explicit initialized MOB-suite database directory')
     parser.add_argument('--mob-executable', default='mob_recon')
     parser.add_argument('--plasmidfinder-identity', type=float, default=.95)
     parser.add_argument('--plasmidfinder-coverage', type=float, default=.60)

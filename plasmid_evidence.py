@@ -201,7 +201,7 @@ def main():
         a.rrna_gff = a.out/'rrna.gff'
         run(['barrnap','--kingdom','bac','--threads',str(a.threads),str(a.assembly.resolve())],a.out/'barrnap.log',a.rrna_gff)
     if a.run_mob:
-        run([a.mob_executable,'-i',str(a.assembly.resolve()),'-o',str((a.out/'mob_recon').resolve()),'-n',str(a.threads)]+(['-d',str(a.mob_db.resolve())] if a.mob_db else []),a.out/'mob_recon.log')
+        run([a.mob_executable,'-i',str(a.assembly.resolve()),'-o',str((a.out/'mob_recon').resolve()),'-n',str(a.threads)],a.out/'mob_recon.log')
         a.mob_report = a.out/'mob_recon'/'contig_report.txt'
     if a.run_plasmidfinder:
         run(finder.command(a,a.assembly,a.out/'plasmidfinder'),a.out/'plasmidfinder.log')
@@ -286,7 +286,7 @@ def main():
     inputs.update({f'blast_{i+1}':str(path.resolve()) for i,path in enumerate(a.blast_results)})
     (a.out/'blast_hits.json').write_text(json.dumps(blast,indent=2)+'\n')
     checksums = {k:hashlib.sha256(Path(v).read_bytes()).hexdigest() for k,v in inputs.items()}
-    (a.out/'provenance.json').write_text(json.dumps({'version':VERSION,'mob_database_directory':str(a.mob_db.resolve()) if a.mob_db else None,'finder_database_sha256':finder.database_fingerprint(a.plasmidfinder_db),'plasmidfinder_identity':a.plasmidfinder_identity,'plasmidfinder_coverage':a.plasmidfinder_coverage,'inputs':inputs,'sha256':checksums,'commands':commands,'coverage_baseline':baseline,'baseline_definition':'median SPAdes header coverage of contigs >=10000 bp','coverage_ratio_cutoff':a.coverage_ratio},indent=2)+'\n')
+    (a.out/'provenance.json').write_text(json.dumps({'version':VERSION,'finder_database_sha256':finder.database_fingerprint(a.plasmidfinder_db),'plasmidfinder_identity':a.plasmidfinder_identity,'plasmidfinder_coverage':a.plasmidfinder_coverage,'inputs':inputs,'sha256':checksums,'commands':commands,'coverage_baseline':baseline,'baseline_definition':'median SPAdes header coverage of contigs >=10000 bp','coverage_ratio_cutoff':a.coverage_ratio},indent=2)+'\n')
     warnings = ['No result is a confirmed plasmid. This is evidence triage, not a validated classifier.', 'Coverage is original SPAdes header coverage, not mapped base depth or copy number.', 'Graph support distinguishes isolated and externally connected matching-ID same-orientation self-links; multi-segment circles and SPAdes numeric-ID mapping are not assessed.', 'BLAST imports retain record titles and identity; chromosome matches do not exclude plasmids. Pairwise query coverage is calculated from the union of aligned query coordinates; this includes all imported matching sections regardless of identity. Missing coordinates remain unassessed. Identity shown is for the longest matching section, not a whole-reference average. Gene interpretation, reassembly and junction read validation are not implemented.', 'Absence of candidates does not establish plasmid absence.']
     if a.gfa and not (graph_ids & records.keys()): warnings.append('WARNING: GFA and FASTA IDs do not match. Graph checks are unassessed for every contig.')
     report = ['# PlasmidTrace v'+VERSION, f'Contigs: {len(records)}; review candidates: {len(candidates)}', '## Limits']+['- '+w for w in warnings]
